@@ -2,63 +2,74 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An independent conversational product-discovery concept inspired by L’Oréal Paris." />
+    <title>Beauty Advisor | Design by Eden Souare</title>
+    <link rel="icon" href="img/favicon.ico" sizes="any" />
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-
   <body>
-    <div class="page-wrapper">
-      <!------- Header / Branding ------->
-      <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
-      </header>
+    <header class="masthead">
+      <div class="masthead-inner">
+        <img class="wordmark" src="img/loreal-logo.png" alt="L’Oréal" width="500" height="91" />
+        <a class="external" href="https://www.lorealparisusa.com/" target="_blank" rel="noopener">L’Oréal Paris website <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
 
-      <!------- Chat Area ------->
-      <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+    <main class="layout">
+      <div class="intro">
+        <h1 id="page-title">Beauty<br class="desktop-break" /> Advisor</h1>
+        <p>Explore L’Oréal products, compare options, and build a beauty routine that fits you.</p>
+      </div>
+
+      <section class="chatbox" aria-labelledby="chat-title">
+        <header class="chat-header">
+          <h2 id="chat-title">Your consultation</h2>
+          <button type="button" id="clearChat" class="reset">New chat</button>
+        </header>
+
+        <div id="chatWindow" class="chat-window" role="log" aria-label="Conversation" tabindex="0"></div>
+
+        <div class="composer">
+          <div class="suggestions" role="group" aria-label="Browse by topic">
+            <button type="button" data-question="Help me build a simple L’Oréal Paris skin care routine for dry skin.">Skin care</button>
+            <button type="button" data-question="Which L’Oréal Paris mascara could give me natural-looking definition?">Makeup</button>
+            <button type="button" data-question="How can I care for color-treated hair using L’Oréal Paris products?">Hair care</button>
+            <button type="button" data-question="Help me compare L’Oréal Paris EverPure hair fragrance options for everyday wear.">Fragrance</button>
           </div>
-
+          <div class="recommended" role="group" aria-labelledby="recommended-label">
+            <p id="recommended-label">Suggested questions</p>
+            <div class="recommended-grid">
+              <button type="button">What’s a simple routine for dry skin?</button>
+              <button type="button">Which mascara gives natural-looking definition?</button>
+              <button type="button">How can I care for color-treated hair?</button>
+              <button type="button">Which hair fragrance is good for everyday wear?</button>
+            </div>
+          </div>
           <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
-            <input
-              id="userInput"
-              name="userInput"
-              type="text"
-              placeholder="Ask me about products or routines…"
-              autocomplete="off"
-              required
-            />
-            <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
-            </button>
+            <label for="userInput" class="visually-hidden">Your message</label>
+            <input id="userInput" name="userInput" type="text" placeholder="Ask about products or routines…" autocomplete="off" maxlength="500" required />
+            <button type="submit" id="sendBtn">Send <span aria-hidden="true">↑</span></button>
           </form>
-        </section>
-      </main>
+          <p id="status" role="status"></p>
+          <p class="chat-note">AI-generated guidance. Verify details on product labels and avoid sharing personal information.</p>
+        </div>
+      </section>
 
-      <!------- Footer Links ------->
-      <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
-        </nav>
-      </footer>
-    </div>
+      <figure class="feature">
+        <div class="feature-image">
+          <img src="img/revitalift.webp" alt="L’Oréal Paris RevitaLift Triple Power moisturizer in a red jar" />
+        </div>
+        <figcaption>
+          <a class="external" href="https://www.lorealparisusa.com/skin-care/facial-moisturizers/revitalift-triple-power-anti-aging-moisturizer" target="_blank" rel="noopener">Explore RevitaLift Triple Power <span aria-hidden="true">↗</span></a>
+        </figcaption>
+      </figure>
+    </main>
 
-    <script src="script.js"></script>
+    <footer class="site-footer">
+      <p>Independent design concept by <strong>Eden Souare</strong>, inspired by L’Oréal Paris.</p>
+    </footer>
   </body>
 </html>
